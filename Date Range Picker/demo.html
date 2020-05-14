@@ -1,0 +1,57 @@
+<!-- https://www.daterangepicker.cn/#license -->
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+   <head>
+      <meta charset="UTF-8" />
+      <title>A date range picker for Bootstrap</title>
+      <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker.css" />
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/moment.min.js"></script>
+      <script type="text/javascript" src="js/daterangepicker.js"></script>
+   </head>
+   <body style="margin: 60px 0">
+              <div class="form-group">
+                <label for="parentEl">parentEl</label>
+                <input type="text" class="form-control" id="leadGen-contactYouDate" value="" placeholder="body">
+              </div>
+
+      <style type="text/css">
+      .demo { position: relative; }
+      .demo i {
+        position: absolute; bottom: 10px; right: 24px; top: auto; cursor: pointer;
+      }
+      </style>
+
+      <script type="text/javascript">
+      
+var monthsNm=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var leadGenValidDate = new Date();
+var leadGenYear = leadGenValidDate.getFullYear();
+var leadGenMonth = leadGenValidDate.getMonth();
+leadGenMonth=monthsNm[leadGenMonth];
+var leadGenDate = leadGenValidDate.getDate()+1;
+var minDate = leadGenDate+'-'+leadGenMonth+'-'+leadGenYear;
+console.log(minDate)
+$("input[type='text']#leadGen-contactYouDate").daterangepicker({
+  singleDatePicker: true,
+  showDropdowns: true,
+  locale: {
+    format: 'DD-MMM-YYYY',
+    "daysOfWeek": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ]
+  }
+  ,minDate: minDate
+  ,maxDate: leadGenDate+'-'+leadGenMonth+'-'+(leadGenYear+10)
+});
+
+      </script>
+
+   </body>
+</html>
